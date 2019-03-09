@@ -33,9 +33,15 @@
 }
 
 .parent {
-  background-color: lightsalmon;
+  background-color: lightgoldenrodyellow;
   height: 130px;
   width: 500px;
+  margin-left: 100px;
+  margin-top: 30px;
+  padding-top: 25px;
+  border: 1px solid grey;
+  cursor: pointer;
+  /* z-index: 1; */
 }
 
 .child1,
@@ -54,4 +60,8 @@
 span {
   color: orangered;
   font-weight: 600;
+}
+
+strong {
+  display: block;
 }

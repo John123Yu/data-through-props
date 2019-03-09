@@ -7,6 +7,7 @@ export default class Child2 extends Component {
 
   handleClick(e) {
     e.preventDefault();
+    e.stopPropagation();
     let randomNumber = randomString(5);
     this.props.mutateState(randomNumber);
   }

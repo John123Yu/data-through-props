@@ -11,6 +11,7 @@ export default class Parent extends Component {
     };
     this.mutateChild1 = this.mutateChild1.bind(this);
     this.mutateChild2 = this.mutateChild2.bind(this);
+    this.mutateChildren = this.mutateChildren.bind(this);
   }
   mutateChild1(value) {
     this.setState({
@@ -22,9 +23,16 @@ export default class Parent extends Component {
       child2: value
     });
   }
+  mutateChildren() {
+    this.setState({
+      child1: random0To99(),
+      child2: random0To99()
+    });
+  }
   render() {
     return (
-      <div className="parent">
+      <div className="parent" onClick={this.mutateChildren}>
+        <strong>Parent</strong>
         <Child1 value={this.state.child1} mutateState={this.mutateChild1} />
         <Child2 value={this.state.child2} mutateState={this.mutateChild2} />
       </div>
