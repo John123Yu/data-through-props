@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { random0To99 } from "../helpers";
 
 export default class Child1 extends Component {
   constructor(props) {
@@ -9,15 +8,23 @@ export default class Child1 extends Component {
 
   handleClick(e) {
     e.preventDefault();
-    let randomNumber = random0To99();
+    let randomNumber = randomString(5);
     this.props.mutateState(randomNumber);
   }
 
   render() {
     return (
       <div className="child1" onClick={this.handleClick}>
-        Child 1 value is: <span>{this.props.number}</span>
+        Child 1 value is: <span>{this.props.value}</span>
       </div>
     );
   }
+}
+
+function randomString(length) {
+  var text = "";
+  var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+  for (var i = 0; i < length; i++)
+    text += possible.charAt(Math.floor(Math.random() * possible.length));
+  return text;
 }

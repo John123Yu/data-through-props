@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import Child1 from "./child1";
 import Child2 from "./child2";
-import { random0To99 } from "../helpers";
 
 export default class Parent extends Component {
   constructor(props) {
@@ -25,10 +24,14 @@ export default class Parent extends Component {
   }
   render() {
     return (
-      <div>
-        <Child1 number={this.state.child1} mutateState={this.mutateChild1} />
-        <Child2 number={this.state.child2} mutateState={this.mutateChild2} />
+      <div className="parent">
+        <Child1 value={this.state.child1} mutateState={this.mutateChild1} />
+        <Child2 value={this.state.child2} mutateState={this.mutateChild2} />
       </div>
     );
   }
+}
+
+export function random0To99() {
+  return Math.floor(Math.random() * 100);
 }
